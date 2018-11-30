@@ -1,18 +1,17 @@
 import React, {Component} from 'react';
 import '../style/MovieInputs.css';
+import {connect} from 'react-redux';
 
-export default class MovieInputs extends Component {
+class MovieInputs extends Component {
 
   addMovie() {
     const title = document.getElementById("movieTitleInput").value;
     const description = document.getElementById("movieDescriptionInput").value;
-    const movies = this.props.getMovies();
-    this.props.setMovies([
-      ...movies, {
+    this.props.addMovie({
         title: title,
         description: description
       }
-    ]);
+    );
   }
 
   render() {
@@ -25,3 +24,22 @@ export default class MovieInputs extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    movies: state.moviesPanelReducer.movies
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addMovie: function(movie) {
+      return dispatch({
+        type: 'MOVIES_ADD_NEW',
+        movie: movie
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieInputs);

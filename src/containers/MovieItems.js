@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import MovieItem from '../components/MovieItem';
 import '../style/MovieItems.css'
+import {connect} from 'react-redux';
 
-export default class MovieItems extends Component {
+class MovieItems extends Component {
   render() {
-    const movies = this.props.getMovies();
+    const movies = this.props.movies;
     const items = movies.map(function(item, i){
       return (
         <li key={i}>
@@ -19,3 +20,11 @@ export default class MovieItems extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    movies: state.moviesPanelReducer.movies
+  }
+}
+
+export default connect(mapStateToProps)(MovieItems);

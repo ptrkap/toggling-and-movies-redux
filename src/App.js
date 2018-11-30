@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TogglingPanel from './containers/TogglingPanel';
-import MoviesPanel from './containers/MoviesPanel';
+import MoviesPanel from './components/MoviesPanel';
 
 export default class App extends Component {
   render() {
