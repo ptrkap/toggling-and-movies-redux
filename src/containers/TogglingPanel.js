@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import '../style/TogglingPanel.css';
+import {connect} from 'react-redux';
 
-export default class TogglingPanel extends Component{
+class TogglingPanel extends Component{
 
   toggle() {
-    // this.setState({checked: !this.state.checked});
+    this.props.setChecked(!this.props.checked);
   }
 
   getCheckboxState() {
-    // return this.state.checked ? "Checked" : "Unchecked";
+    return this.props.checked ? "Checked" : "Unchecked";
   }
 
   render() {
@@ -16,10 +17,29 @@ export default class TogglingPanel extends Component{
       <div id="togglingPanel">
         <h2 id="togglingPanelTitle">Toggling</h2>
         <div id="checkboxSection">
-          {/* <input type="checkbox" checked={this.state.checked} onChange={this.toggle.bind(this)}></input>
-          <span id="checkboxState">{this.getCheckboxState()}</span> */}
+          <input type="checkbox" checked={this.checked} onChange={this.toggle.bind(this)}></input>
+          <span id="checkboxState">{this.getCheckboxState()}</span>
         </div>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    checked: state.togglingPanelReducer.checked
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setChecked: function(checked) {
+      return dispatch({
+        type: "TOGGLING_SET_CHECKED",
+        checked: checked
+      });
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TogglingPanel);

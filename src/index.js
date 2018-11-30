@@ -6,7 +6,8 @@ import {Provider} from 'react-redux';
 import togglingPanelReducer from './reducers/TogglingPanelReducer'
 
 const combinedReducer = combineReducers({togglingPanelReducer});
-const store = createStore(combinedReducer);
+const store = createStore(combinedReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
     <Provider store={store}>
