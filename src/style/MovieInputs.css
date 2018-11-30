@@ -1,0 +1,29 @@
+#movieInputs {
+    text-align: center;
+}
+
+#movieTitleInput {
+    width: 150px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 2px;
+    color: rgb(100, 100, 255);
+}
+
+#movieDescriptionInput {
+    width: 148px;
+    height: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 4px;
+    color: rgb(100, 100, 255);
+}
+
+#movieDescriptionInput::placeholder, #movieTitleInput::placeholder {
+    color: rgb(100, 100, 255);
+}
+
+#addMovieButton {
+    display: block;
+    margin: auto;
+    width: 158px;
+    color: rgb(100, 100, 255);
+}

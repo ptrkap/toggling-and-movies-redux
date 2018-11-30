@@ -1,0 +1,18 @@
+#togglingPanel {
+    background-color: bisque;
+    padding: 10px;
+}
+
+h2#togglingPanelTitle {
+    color: rgb(100, 100, 255);
+    text-align: center;
+    margin-top: 0px;
+}
+
+#checkboxSection {
+    text-align: center;
+}
+
+#checkboxState {
+    color: rgb(100, 100, 255);
+}
