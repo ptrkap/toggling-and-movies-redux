@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 class TogglingPanel extends Component{
 
-  toggle() {
+  toggle = () => {
     this.props.setChecked(!this.props.checked);
   }
 
@@ -17,7 +17,7 @@ class TogglingPanel extends Component{
       <div id="togglingPanel">
         <h2 id="togglingPanelTitle">Toggling</h2>
         <div id="checkboxSection">
-          <input type="checkbox" checked={this.checked} onChange={this.toggle.bind(this)}></input>
+          <input type="checkbox" checked={this.checked} onChange={this.toggle}></input>
           <span id="checkboxState">{this.getCheckboxState()}</span>
         </div>
       </div>
