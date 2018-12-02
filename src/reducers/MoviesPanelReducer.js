@@ -1,7 +1,4 @@
 export default function(state = {}, action) {
-  if (!state.movies) {
-    state.movies = [];
-  }
   switch(action.type) {
     case 'MOVIES_ADD_NEW':
       return {
@@ -11,6 +8,9 @@ export default function(state = {}, action) {
         ]
       }
     default:
+      if (!state.movies) {
+        state.movies = [];
+      }
       return state
   }
 }

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 class MovieInputs extends Component {
 
-  addMovie = () => {
+  addMovie() {
     const title = document.getElementById("movieTitleInput").value;
     const description = document.getElementById("movieDescriptionInput").value;
     this.props.addMovie({
@@ -19,7 +19,7 @@ class MovieInputs extends Component {
       <div id="movieInputs">
         <input id="movieTitleInput" placeholder="Title"></input><br />
         <textarea id="movieDescriptionInput" placeholder="Description"></textarea>
-        <button id="addMovieButton" onClick={this.addMovie}>Add movie</button>
+        <button id="addMovieButton" onClick={this.addMovie.bind(this)}>Add movie</button>
       </div>
     );
   }
